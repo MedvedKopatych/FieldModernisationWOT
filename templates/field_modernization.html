@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.js"></script>
+    <link rel="stylesheet" href="static/css/font.css?v=build_156">
+    <link rel="stylesheet" href="static/css/mycss.css">
+    <link rel="shortcut icon" href="static/img/favicon.ico">
+    <script type="text/javascript" src="//web-ptica.ru/VRV-files/jquery-2.1.3.min.js"></script>
+    <title>Полевая модернизация WOT</title>
+</head>
+<body>
+    <div class="sparkles"></div>
+    <div class="header-background"></div>
+    {% verbatim %}
+    <div class="wrapper" id="tanks-base">
+        <div class="header">
+            <div class="header-wrapper">
+                <div class="filters">
+                    <form action="">
+                        <select v-model="nation">
+                            <option selected disabled value="">Выберите нацию</option>
+                            <option v-for="nation in nations" :value="nation">{{ nation }}</option>
+                        </select>
+                        <select v-model="type" placeholder="Выбор Типа">
+                            <option selected disabled value="">Выберите Тип</option>
+                            <option v-for="type in types" :value="type">{{ type }}</option>
+                        </select>
+                        <select v-model="tier" placeholder="Выбор Уровня">
+                            <option selected disabled value="">Выберите Уровень</option>
+                            <option v-for="tier in tiers" :value="tier">{{tier}}</option>
+                        </select>
+                        <button type="button" @click="getFiltered" class="filter">ПРИМЕНИТЬ</button>
+                        <button type="reset" class="filter" @click="resetFilters">ОЧИСТИТЬ</button>
+                    </form>
+                </div>
+                <div class="search-by-name" id="search">
+                    <input v-model="keyword"  type="text" placeholder="Искать по названию" data-i18n="search-placeholder">
+                    <button type="reset" class="clear" @click="clearSearch"></button>                    </button>
+                    <button type="button" @click="getSearchName" class="search"></button>
+                </div>        
+                <span data-i18n="title">ПОЛЕВАЯ МОДЕРНИЗАЦИЯ ДЛЯ ТАНКОВ 8, 9 И 10 УРОВНЕЙ</span>               
+            </div>
+        </div>   
+        <div class="container">
+            <div class="table-container">
+                <div class="table-header">
+                    <div class="table-header-wrapper">
+                        
+                        <div class="header-block name">
+                            <span class="header-label" data-i18n="filters-name">Танк</span>
+                        </div>  
+                        <div class="header-block nation" id="nation">
+                            <span class="header-label" data-i18n="filters-nation">Нация</span>
+                            
+                        </div>       
+                        <div class="header-block type" id="type">
+                            <span class="header-label" data-i18n="filters-type">Тип</span> 
+                        </div>    
+                        <div class="header-block tier" id="tier">
+                            <span class="header-label" data-i18n="filters-tier">Уровень</span>
+                            
+                        </div> 
+                        <div class="header-block modernizations">
+                            <span class="header-label" data-i18n="filters-modernizations">Рекомендуемые модернизации</span>
+                        </div>                                           
+                    </div>
+                </div>
+                
+                <div class="vehicles-table">
+                    <div class="tank-container" v-for="tank in tanks">
+                        <div class="tank-container-wrapper">
+                            <div class="tank-block name">
+                                <img class="tank-icon" :src="'' + tank.small_icon" alt="icon">
+                                <p class="tank-name">{{ tank.name }}</p>
+                            </div>
+                            <div class="tank-block nation">
+                                <img class="tank-flag" :src="'' +  tank.flag" alt="flag">
+                                <p class="tank-nation">{{ tank.nation }}</p> 
+                            </div>
+                            <div class="tank-block type">
+                                <img class="type-icon" v-bind:src="'' +  tank.type_icon" alt="type_icon">
+                                <p class="tank-type">{{ tank.type }}</p>
+                            </div>
+                            <div class="tank-block tier">
+                                <p class="tank-field">{{ tank.tier }}</p>
+                            </div>
+                            <div class="tank-block modernizations">
+                                    <p>{{ tank.modernization_1 }}</p>
+                                    <p>{{ tank.modernization_2 }}</p>
+                                    <p>{{ tank.modernization_3 }}</p>
+                                    <p>{{ tank.modernization_4 }}</p>
+                                    <p>{{ tank.modernization_5 }}</p>
+                            </div>                                              
+                        </div>                         
+                    </div> 
+                </div>
+                {% endverbatim %}
+            </div>        
+        </div>
+    </div>
+    <script src="/static/app.js"></script>
+    <script type="text/javascript" src="//web-ptica.ru/VRV-files/knopkavverh/14.js"></script>
+</body>
+</html>
