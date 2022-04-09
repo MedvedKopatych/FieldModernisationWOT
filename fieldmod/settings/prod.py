@@ -51,6 +51,4 @@ django_on_heroku.settings(locals(), staticfiles=False)
 del DATABASES['default']['OPTIONS']['sslmode']
 
 
-STATIC_ROOT = [
-    BASE_DIR / 'staticfiles'
-    ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
