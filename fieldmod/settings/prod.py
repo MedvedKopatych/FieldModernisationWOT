@@ -45,3 +45,8 @@ LOGGING = {
 #  Heroku settings
 django_on_heroku.settings(locals(), staticfiles=False)
 del DATABASES['default']['OPTIONS']['sslmode']
+
+
+STATIC_ROOT = [
+    BASE_DIR / 'staticfiles'
+    ]
