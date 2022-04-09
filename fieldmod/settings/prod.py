@@ -8,7 +8,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = False
 
 DATABASES = {
-    'default': dj_database_url.config(default='postgresql:TanksBaseWOT',
+    'default': dj_database_url.config(default='postgres://localhost',
                                       engine='django.db.backends.postgresql_psycopg2',
                                       conn_max_age=600, ssl_require=False)
 }
