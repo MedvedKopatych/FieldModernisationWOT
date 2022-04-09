@@ -7,6 +7,8 @@ SECRET_KEY = config('SECRET_KEY')
 
 DEBUG = False
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 DATABASES = {
     'default': dj_database_url.config(default='postgres://localhost',
                                       engine='django.db.backends.postgresql_psycopg2',
