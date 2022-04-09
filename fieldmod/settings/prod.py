@@ -3,16 +3,19 @@ from decouple import config
 
 from .base import *
 
-
 SECRET_KEY = config('SECRET_KEY')
 
 DEBUG = False
 
-DATABASES = {'default': dj_database_url.config(default='sqlite:///db.sqlite3', conn_max_age=600, ssl_require=False)}
+DATABASES = {
+    'default': dj_database_url.config(default='postgresql:TanksBaseWOT',
+                                      engine='django.db.backends.postgresql_psycopg2',
+                                      conn_max_age=600, ssl_require=False)
+}
 
 ALLOWED_HOSTS = [
     'field-modernization-wot.herokuapp.com',
-    ]
+]
 
 DEBUG_PROPAGATE_EXCEPTIONS = True
 
@@ -36,9 +39,9 @@ LOGGING = {
         'MYAPP': {
             'handlers': ['console'],
             'level': 'DEBUG',
-            },
+        },
     }
 }
 #  Heroku settings
-#django_on_heroku.settings(locals(), staticfiles=False)
-#del DATABASES['default']['OPTIONS']['sslmode']
+django_on_heroku.settings(locals(), staticfiles=False)
+del DATABASES['default']['OPTIONS']['sslmode']
