@@ -103,7 +103,7 @@ LANGUAGES = [
     ("ru", gettext_noop("Russian")),
     ]
 
-LANGUAGES_BIDI = ["en", "ru"]
+LANGUAGES_BIDI = []
 
 TIME_ZONE = 'UTC'
 
