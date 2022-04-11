@@ -119,20 +119,20 @@ USE_TZ = True
 # Next lines commented before using S3 it worked fine with heroku
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-# STATIC_URL = 'static/'
+STATIC_URL = 'static/'
 
-# STATICFILES_DIRS = [
-#   BASE_DIR / 'static'
-# ]
+STATICFILES_DIRS = [
+   BASE_DIR / 'static'
+]
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# MEDIA_URL = '/media/'
+MEDIA_URL = '/media/'
 
 
 # Default primary key field type
