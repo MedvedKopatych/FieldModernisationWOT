@@ -1,7 +1,7 @@
 import os
 import django
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "fieldmod.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "fieldmod.settings.dev")
 django.setup()
 
 
