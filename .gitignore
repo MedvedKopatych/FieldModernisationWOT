@@ -3,6 +3,7 @@
 tanks_base_for_export.json
 tanksbase.json
 datbaseuser.txt
+AWSS3requirements.txt
 ### Django ###
 *.log
 *.pot
