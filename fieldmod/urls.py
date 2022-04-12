@@ -4,7 +4,7 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import path
 from rest_framework.routers import SimpleRouter
-from tanksbase.views import main_view, TankView
+from tanksbase.views import local_view, TankView, heroku_view
 from django.contrib.staticfiles.urls import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
@@ -15,7 +15,8 @@ router.register('api/tanksbase', TankView)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', main_view, name="Field Modernization"),
+    path('local', local_view, name="Field Modernization-local"),
+    path('', heroku_view, name='Field Modernization on heroku')
     ]
 
 urlpatterns += router.urls

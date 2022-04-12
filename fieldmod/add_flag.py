@@ -30,6 +30,8 @@ def add_flag():
             tank.flag = "flags/filter-uk.png"
         elif tank.nation == 'США':
             tank.flag = "flags/filter-usa.png"
+        elif tank.nation == 'Польша':
+            tank.flag = "flags/filter-poland.png"
         elif tank.nation == 'СССР':
             tank.flag = "flags/filter-ussr.png"
     Tank.objects.bulk_update(tanks, ['flag'])

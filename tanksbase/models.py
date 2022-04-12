@@ -7,6 +7,8 @@ class Tank(models.Model):
     nation = models.CharField('Nation', max_length=120)
     name = models.CharField('Name', max_length=255)
     small_icon = models.CharField('Small_icon', max_length=400, default=None)
+    heroku_flag = models.CharField('Heroku_flag', max_length=400, null=True)
+    heroku_type = models.CharField('Heroku_type', max_length=400, null=True)
     modernization_1 = models.CharField('Modernization 1', max_length=255, default=None)
     modernization_2 = models.CharField('Modernization 2', max_length=255, default=None)
     modernization_3 = models.CharField('Modernization 3', max_length=255, default=None)

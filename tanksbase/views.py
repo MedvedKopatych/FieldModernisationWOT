@@ -7,7 +7,11 @@ from tanksbase.models import Tank
 from tanksbase.serializers import TankSerializer
 
 
-def main_view(request):
+def heroku_view(request):
+    return render(request, 'field_modernization_heroku.html')
+
+
+def local_view(request):
     return render(request, 'field_modernization.html')
 
 

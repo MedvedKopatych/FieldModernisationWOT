@@ -2,6 +2,30 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="theme-color" content="#2D272C" />
+    <meta name="description" content="Полевая модернизация для всех танков 8, 9 и 10 уровней" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="MobileOptimized" content="width" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta property="og:title" content="Полевая модернизация" />
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+ 
+    ym(88254553, "init", {
+         clickmap:true,
+         trackLinks:true,
+         accurateTrackBounce:true
+        });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/88254553" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.js"></script>
     <link rel="stylesheet" href="static/css/font.css?v=build_156">
@@ -11,10 +35,10 @@
     <title>Полевая модернизация WOT</title>
 </head>
 <body>
-    {% load cache %}
-    {% cache 604800 vehicles-table %}
     <div class="sparkles"></div>
     <div class="header-background"></div>
+    {% load cache %}
+    {% cache 604800 vehicles-table %}
     {% verbatim %}
     <div class="wrapper" id="tanks-base">
         <div class="header">
@@ -41,35 +65,31 @@
                     <input v-model="keyword"  type="text" placeholder="Искать по названию" data-i18n="search-placeholder">
                     <button type="reset" class="clear" @click="clearSearch"></button>                    </button>
                     <button type="button" @click="getSearchName" class="search"></button>
-                </div>        
-                <span data-i18n="title">ПОЛЕВАЯ МОДЕРНИЗАЦИЯ ДЛЯ ТАНКОВ 8, 9 И 10 УРОВНЕЙ</span>               
+                </div>
+                <span data-i18n="title">ПОЛЕВАЯ МОДЕРНИЗАЦИЯ ДЛЯ ТАНКОВ 8, 9 И 10 УРОВНЕЙ</span>
             </div>
-        </div>   
+        </div>
         <div class="container">
             <div class="table-container">
                 <div class="table-header">
                     <div class="table-header-wrapper">
-                        
                         <div class="header-block name">
                             <span class="header-label" data-i18n="filters-name">Танк</span>
-                        </div>  
+                        </div>
                         <div class="header-block nation" id="nation">
                             <span class="header-label" data-i18n="filters-nation">Нация</span>
-                            
-                        </div>       
+                        </div>
                         <div class="header-block type" id="type">
-                            <span class="header-label" data-i18n="filters-type">Тип</span> 
-                        </div>    
+                            <span class="header-label" data-i18n="filters-type">Тип</span>
+                        </div>
                         <div class="header-block tier" id="tier">
                             <span class="header-label" data-i18n="filters-tier">Уровень</span>
-                            
-                        </div> 
+                        </div>
                         <div class="header-block modernizations">
                             <span class="header-label" data-i18n="filters-modernizations">Рекомендуемые модернизации</span>
-                        </div>                                           
+                        </div>
                     </div>
                 </div>
-                
                 <div class="vehicles-table">
                     <div class="tank-container" v-for="tank in tanks">
                         <div class="tank-container-wrapper">
@@ -78,11 +98,11 @@
                                 <p class="tank-name">{{ tank.name }}</p>
                             </div>
                             <div class="tank-block nation">
-                                <img class="tank-flag" :src="'' +  tank.flag" alt="flag">
-                                <p class="tank-nation">{{ tank.nation }}</p> 
+                                <img class="tank-flag" :src="'' +  tank.heroku_flag" alt="heroku_flag">
+                                <p class="tank-nation">{{ tank.nation }}</p>
                             </div>
                             <div class="tank-block type">
-                                <img class="type-icon" :src="'' +  tank.type_icon" alt="type_icon">
+                                <img class="type-icon" :src="'' +  tank.heroku_type" alt="heroku_type">
                                 <p class="tank-type">{{ tank.type }}</p>
                             </div>
                             <div class="tank-block tier">
@@ -94,14 +114,14 @@
                                     <p>{{ tank.modernization_3 }}</p>
                                     <p>{{ tank.modernization_4 }}</p>
                                     <p>{{ tank.modernization_5 }}</p>
-                            </div>                                              
-                        </div>                         
-                    </div> 
-                </div>    
-            </div> 
-        </div>      
+                            </div>
+                        </div>
+                    </div>
+                </div>             
+            </div>
+        </div>
     </div>
-    {% endverbatim %} 
+    {% endverbatim %}
     {% endcache %}
     <script src="/static/app.js"></script>
     <script type="text/javascript" src="//web-ptica.ru/VRV-files/knopkavverh/14.js"></script>
