@@ -6,8 +6,6 @@ datbaseuser.txt
 AWSS3requirements.txt
 field_modernization.html
 baseout_heroku_2.sql
-heroku_add_flag.py
-heroku_add_type_icon.py
 cash
 ### Django ###
 *.log
